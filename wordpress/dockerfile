@@ -1,0 +1,28 @@
+# Dockerfile
+FROM ubuntu:latest
+
+# Set noninteractive mode for apt-get
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y vim curl gnupg php apache2 mysql-server php-mysql php-mbstring php-curl php-pdo php-gd zip && \
+    rm -rf /var/lib/apt/lists/*
+
+# Enable Apache modules
+RUN a2enmod status rewrite
+
+# Copy configuration files and setup script
+COPY setup.sh /usr/local/bin/setup.sh
+
+# Make the setup script executable
+RUN chmod +x /usr/local/bin/setup.sh
+
+# Expose port 80
+EXPOSE 80
+
+# Run the setup script
+RUN /usr/local/bin/setup.sh
+
+# Start Apache in the foreground
+CMD ["apachectl", "-D", "FOREGROUND"]

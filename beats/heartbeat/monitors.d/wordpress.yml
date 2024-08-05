@@ -1,0 +1,37 @@
+- type: http
+  id: web1
+  name: Web1 WordPress Site
+  urls: ["http://web1.devsecops.net/"]
+  check.response.status: [200]
+  schedule: '@every 1m'
+- type: http
+  id: web2
+  name: Web2 WordPress Site
+  urls: ["http://web2.devsecops.net/"]
+  check.response.status: [200]
+  schedule: '@every 1m'
+- type: http
+  id: web3
+  name: Web3 WordPress Site
+  urls: ["http://web3.devsecops.net/"]
+  check.response.status: [200]
+  schedule: '@every 1m'
+- type: http
+  id: web4
+  name: Web4 WordPress Site
+  urls: ["http://web4.devsecops.net/"]
+  check.response.status: [200]
+  schedule: '@every 1m'
+- type: http
+  id: web5
+  name: Web5 WordPress Site
+  urls: ["http://web5.devsecops.net/"]
+  check.response.status: [200]
+  schedule: '@every 1m'
+- type: http
+  id: web6
+  name: Web6 WordPress Site
+  urls: ["http://web6.devsecops.net/"]
+  check.response.status: [200]
+  schedule: '@every 1m'
+
